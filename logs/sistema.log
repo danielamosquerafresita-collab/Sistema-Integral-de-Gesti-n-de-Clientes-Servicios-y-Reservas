@@ -1,0 +1,306 @@
+2026-11-20 20:53:36,031 - INFO - Sistema Software FJ iniciado.
+2026-11-20 20:53:36,033 - INFO - Cliente registrado: C001
+2026-11-20 20:53:36,033 - INFO - Finalizó operación de registro de cliente.
+2026-11-20 20:53:36,034 - INFO - Cliente registrado: C002
+2026-11-20 20:53:36,034 - INFO - Finalizó operación de registro de cliente.
+2026-11-20 20:53:36,035 - ERROR - Error en operación: 3. Registrar cliente con correo incorrecto
+Traceback (most recent call last):
+  File "C:\Users\danie\OneDrive\Desktop\SOFTWARE_FJ\main.py", line 23, in ejecutar
+    resultado = operacion()
+  File "C:\Users\danie\OneDrive\Desktop\SOFTWARE_FJ\main.py", line 79, in <lambda>
+    lambda: Cliente(
+            ~~~~~~~^
+        "C003",
+        ^^^^^^^
+    ...<2 lines>...
+        "3201234567"
+        ^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\danie\OneDrive\Desktop\SOFTWARE_FJ\cliente.py", line 13, in __init__
+    self.__correo = self.validar_correo(correo)
+                    ~~~~~~~~~~~~~~~~~~~^^^^^^^^
+  File "C:\Users\danie\OneDrive\Desktop\SOFTWARE_FJ\cliente.py", line 38, in validar_correo
+    raise DatosInvalidosError(
+        "El formato del correo electrónico es incorrecto."
+    )
+excepciones.DatosInvalidosError: El formato del correo electrónico es incorrecto.
+2026-11-20 20:53:36,039 - ERROR - Error al registrar cliente.
+Traceback (most recent call last):
+  File "C:\Users\danie\OneDrive\Desktop\SOFTWARE_FJ\gestor.py", line 48, in registrar_cliente
+    raise ClienteExistenteError(
+        "El cliente ya está registrado."
+    )
+excepciones.ClienteExistenteError: El cliente ya está registrado.
+2026-11-20 20:53:36,040 - INFO - Finalizó operación de registro de cliente.
+2026-11-20 20:53:36,040 - ERROR - Error en operación: 4. Registrar cliente duplicado
+Traceback (most recent call last):
+  File "C:\Users\danie\OneDrive\Desktop\SOFTWARE_FJ\main.py", line 23, in ejecutar
+    resultado = operacion()
+  File "C:\Users\danie\OneDrive\Desktop\SOFTWARE_FJ\main.py", line 90, in <lambda>
+    lambda: sistema.registrar_cliente(cliente1)
+            ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\danie\OneDrive\Desktop\SOFTWARE_FJ\gestor.py", line 48, in registrar_cliente
+    raise ClienteExistenteError(
+        "El cliente ya está registrado."
+    )
+excepciones.ClienteExistenteError: El cliente ya está registrado.
+2026-11-20 20:53:36,042 - INFO - Servicio registrado: S001
+2026-11-20 20:53:36,042 - INFO - Finalizó operación de registro de servicio.
+2026-11-20 20:53:36,043 - INFO - Servicio registrado: S002
+2026-11-20 20:53:36,043 - INFO - Finalizó operación de registro de servicio.
+2026-11-20 20:53:36,043 - INFO - Servicio registrado: S003
+2026-11-20 20:53:36,044 - INFO - Finalizó operación de registro de servicio.
+2026-11-20 20:53:36,044 - ERROR - Error en operación: 8. Intentar crear servicio con tarifa negativa
+Traceback (most recent call last):
+  File "C:\Users\danie\OneDrive\Desktop\SOFTWARE_FJ\main.py", line 23, in ejecutar
+    resultado = operacion()
+  File "C:\Users\danie\OneDrive\Desktop\SOFTWARE_FJ\main.py", line 132, in <lambda>
+    lambda: ReservaSala("S004", -5000, 15)
+            ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\danie\OneDrive\Desktop\SOFTWARE_FJ\servicios.py", line 48, in __init__
+    super().__init__(
+    ~~~~~~~~~~~~~~~~^
+        identificador,
+        ^^^^^^^^^^^^^^
+        "Reserva de sala",
+        ^^^^^^^^^^^^^^^^^^
+        tarifa_base
+        ^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\danie\OneDrive\Desktop\SOFTWARE_FJ\servicios.py", line 19, in __init__
+    raise DatosInvalidosError("La tarifa debe ser mayor que cero.")
+excepciones.DatosInvalidosError: La tarifa debe ser mayor que cero.
+2026-11-20 20:53:36,047 - INFO - Reserva creada: R001
+2026-11-20 20:53:36,047 - INFO - Finalizó operación de creación de reserva.
+2026-11-20 20:53:36,047 - ERROR - Error al crear reserva.
+Traceback (most recent call last):
+  File "C:\Users\danie\OneDrive\Desktop\SOFTWARE_FJ\gestor.py", line 113, in crear_reserva
+    raise RecursoNoEncontradoError(
+        "No se encontró el cliente."
+    )
+excepciones.RecursoNoEncontradoError: No se encontró el cliente.
+2026-11-20 20:53:36,048 - INFO - Finalizó operación de creación de reserva.
+2026-11-20 20:53:36,048 - ERROR - Error en operación: 10. Intentar reservar con cliente inexistente
+Traceback (most recent call last):
+  File "C:\Users\danie\OneDrive\Desktop\SOFTWARE_FJ\main.py", line 23, in ejecutar
+    resultado = operacion()
+  File "C:\Users\danie\OneDrive\Desktop\SOFTWARE_FJ\main.py", line 146, in <lambda>
+    lambda: sistema.crear_reserva(
+            ~~~~~~~~~~~~~~~~~~~~~^
+        "R002", "C999", "S001", 2
+        ^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\danie\OneDrive\Desktop\SOFTWARE_FJ\gestor.py", line 113, in crear_reserva
+    raise RecursoNoEncontradoError(
+        "No se encontró el cliente."
+    )
+excepciones.RecursoNoEncontradoError: No se encontró el cliente.
+2026-11-20 20:53:36,050 - ERROR - Error al crear reserva.
+Traceback (most recent call last):
+  File "C:\Users\danie\OneDrive\Desktop\SOFTWARE_FJ\gestor.py", line 118, in crear_reserva
+    raise ServicioNoDisponibleError(
+        "El servicio no está registrado o disponible."
+    )
+excepciones.ServicioNoDisponibleError: El servicio no está registrado o disponible.
+2026-11-20 20:53:36,050 - INFO - Finalizó operación de creación de reserva.
+2026-11-20 20:53:36,050 - ERROR - Error en operación: 11. Intentar reservar servicio inexistente
+Traceback (most recent call last):
+  File "C:\Users\danie\OneDrive\Desktop\SOFTWARE_FJ\main.py", line 23, in ejecutar
+    resultado = operacion()
+  File "C:\Users\danie\OneDrive\Desktop\SOFTWARE_FJ\main.py", line 154, in <lambda>
+    lambda: sistema.crear_reserva(
+            ~~~~~~~~~~~~~~~~~~~~~^
+        "R003", "C001", "S999", 2
+        ^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\danie\OneDrive\Desktop\SOFTWARE_FJ\gestor.py", line 118, in crear_reserva
+    raise ServicioNoDisponibleError(
+        "El servicio no está registrado o disponible."
+    )
+excepciones.ServicioNoDisponibleError: El servicio no está registrado o disponible.
+2026-11-20 20:53:36,052 - INFO - Reserva confirmada: R001
+2026-11-20 20:53:36,052 - INFO - Finalizó operación de confirmación.
+2026-11-20 20:53:36,053 - INFO - Reserva cancelada: R001
+2026-11-20 20:53:36,053 - INFO - Finalizó operación de cancelación.
+2026-11-20 20:53:36,054 - ERROR - Error al confirmar reserva.
+Traceback (most recent call last):
+  File "C:\Users\danie\OneDrive\Desktop\SOFTWARE_FJ\gestor.py", line 155, in confirmar_reserva
+    costo = reserva.confirmar(descuento, impuesto)
+  File "C:\Users\danie\OneDrive\Desktop\SOFTWARE_FJ\reserva.py", line 51, in confirmar
+    raise OperacionNoPermitidaError(
+        "Solo se pueden confirmar reservas pendientes."
+    )
+excepciones.OperacionNoPermitidaError: Solo se pueden confirmar reservas pendientes.
+2026-11-20 20:53:36,056 - INFO - Finalizó operación de confirmación.
+2026-11-20 20:53:36,056 - ERROR - Error en operación: 15. Confirmar reserva cancelada
+Traceback (most recent call last):
+  File "C:\Users\danie\OneDrive\Desktop\SOFTWARE_FJ\main.py", line 23, in ejecutar
+    resultado = operacion()
+  File "C:\Users\danie\OneDrive\Desktop\SOFTWARE_FJ\main.py", line 184, in <lambda>
+    lambda: sistema.confirmar_reserva("R001")
+            ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^
+  File "C:\Users\danie\OneDrive\Desktop\SOFTWARE_FJ\gestor.py", line 155, in confirmar_reserva
+    costo = reserva.confirmar(descuento, impuesto)
+  File "C:\Users\danie\OneDrive\Desktop\SOFTWARE_FJ\reserva.py", line 51, in confirmar
+    raise OperacionNoPermitidaError(
+        "Solo se pueden confirmar reservas pendientes."
+    )
+excepciones.OperacionNoPermitidaError: Solo se pueden confirmar reservas pendientes.
+2026-11-20 20:53:36,061 - INFO - Consulta del resumen del sistema.
+2026-11-20 21:16:18,169 - INFO - Sistema Software FJ iniciado.
+2026-11-20 21:16:18,172 - INFO - Cliente registrado: C001
+2026-11-20 21:16:18,172 - INFO - Finalizó operación de registro de cliente.
+2026-11-20 21:16:18,173 - INFO - Cliente registrado: C002
+2026-11-20 21:16:18,173 - INFO - Finalizó operación de registro de cliente.
+2026-11-20 21:16:18,174 - ERROR - Error en operación: 3. Registrar cliente con correo incorrecto
+Traceback (most recent call last):
+  File "C:\Users\danie\OneDrive\Desktop\SOFTWARE_FJ\main.py", line 23, in ejecutar
+    resultado = operacion()
+  File "C:\Users\danie\OneDrive\Desktop\SOFTWARE_FJ\main.py", line 79, in <lambda>
+    lambda: Cliente(
+            ~~~~~~~^
+        "C003",
+        ^^^^^^^
+    ...<2 lines>...
+        "3201234567"
+        ^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\danie\OneDrive\Desktop\SOFTWARE_FJ\cliente.py", line 13, in __init__
+    self.__correo = self.validar_correo(correo)
+                    ~~~~~~~~~~~~~~~~~~~^^^^^^^^
+  File "C:\Users\danie\OneDrive\Desktop\SOFTWARE_FJ\cliente.py", line 38, in validar_correo
+    raise DatosInvalidosError(
+        "El formato del correo electrónico es incorrecto."
+    )
+excepciones.DatosInvalidosError: El formato del correo electrónico es incorrecto.
+2026-11-20 21:16:18,179 - ERROR - Error al registrar cliente.
+Traceback (most recent call last):
+  File "C:\Users\danie\OneDrive\Desktop\SOFTWARE_FJ\gestor.py", line 48, in registrar_cliente
+    raise ClienteExistenteError(
+        "El cliente ya está registrado."
+    )
+excepciones.ClienteExistenteError: El cliente ya está registrado.
+2026-11-20 21:16:18,190 - INFO - Finalizó operación de registro de cliente.
+2026-11-20 21:16:18,190 - ERROR - Error en operación: 4. Registrar cliente duplicado
+Traceback (most recent call last):
+  File "C:\Users\danie\OneDrive\Desktop\SOFTWARE_FJ\main.py", line 23, in ejecutar
+    resultado = operacion()
+  File "C:\Users\danie\OneDrive\Desktop\SOFTWARE_FJ\main.py", line 90, in <lambda>
+    lambda: sistema.registrar_cliente(cliente1)
+            ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\danie\OneDrive\Desktop\SOFTWARE_FJ\gestor.py", line 48, in registrar_cliente
+    raise ClienteExistenteError(
+        "El cliente ya está registrado."
+    )
+excepciones.ClienteExistenteError: El cliente ya está registrado.
+2026-11-20 21:16:18,198 - INFO - Servicio registrado: S001
+2026-11-20 21:16:18,198 - INFO - Finalizó operación de registro de servicio.
+2026-11-20 21:16:18,199 - INFO - Servicio registrado: S002
+2026-11-20 21:16:18,199 - INFO - Finalizó operación de registro de servicio.
+2026-11-20 21:16:18,200 - INFO - Servicio registrado: S003
+2026-11-20 21:16:18,200 - INFO - Finalizó operación de registro de servicio.
+2026-11-20 21:16:18,201 - ERROR - Error en operación: 8. Intentar crear servicio con tarifa negativa
+Traceback (most recent call last):
+  File "C:\Users\danie\OneDrive\Desktop\SOFTWARE_FJ\main.py", line 23, in ejecutar
+    resultado = operacion()
+  File "C:\Users\danie\OneDrive\Desktop\SOFTWARE_FJ\main.py", line 132, in <lambda>
+    lambda: ReservaSala("S004", -5000, 15)
+            ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\danie\OneDrive\Desktop\SOFTWARE_FJ\servicios.py", line 48, in __init__
+    super().__init__(
+    ~~~~~~~~~~~~~~~~^
+        identificador,
+        ^^^^^^^^^^^^^^
+        "Reserva de sala",
+        ^^^^^^^^^^^^^^^^^^
+        tarifa_base
+        ^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\danie\OneDrive\Desktop\SOFTWARE_FJ\servicios.py", line 19, in __init__
+    raise DatosInvalidosError("La tarifa debe ser mayor que cero.")
+excepciones.DatosInvalidosError: La tarifa debe ser mayor que cero.
+2026-11-20 21:16:18,204 - INFO - Reserva creada: R001
+2026-11-20 21:16:18,204 - INFO - Finalizó operación de creación de reserva.
+2026-11-20 21:16:18,205 - ERROR - Error al crear reserva.
+Traceback (most recent call last):
+  File "C:\Users\danie\OneDrive\Desktop\SOFTWARE_FJ\gestor.py", line 113, in crear_reserva
+    raise RecursoNoEncontradoError(
+        "No se encontró el cliente."
+    )
+excepciones.RecursoNoEncontradoError: No se encontró el cliente.
+2026-11-20 21:16:18,205 - INFO - Finalizó operación de creación de reserva.
+2026-11-20 21:16:18,206 - ERROR - Error en operación: 10. Intentar reservar con cliente inexistente
+Traceback (most recent call last):
+  File "C:\Users\danie\OneDrive\Desktop\SOFTWARE_FJ\main.py", line 23, in ejecutar
+    resultado = operacion()
+  File "C:\Users\danie\OneDrive\Desktop\SOFTWARE_FJ\main.py", line 146, in <lambda>
+    lambda: sistema.crear_reserva(
+            ~~~~~~~~~~~~~~~~~~~~~^
+        "R002", "C999", "S001", 2
+        ^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\danie\OneDrive\Desktop\SOFTWARE_FJ\gestor.py", line 113, in crear_reserva
+    raise RecursoNoEncontradoError(
+        "No se encontró el cliente."
+    )
+excepciones.RecursoNoEncontradoError: No se encontró el cliente.
+2026-11-20 21:16:18,207 - ERROR - Error al crear reserva.
+Traceback (most recent call last):
+  File "C:\Users\danie\OneDrive\Desktop\SOFTWARE_FJ\gestor.py", line 118, in crear_reserva
+    raise ServicioNoDisponibleError(
+        "El servicio no está registrado o disponible."
+    )
+excepciones.ServicioNoDisponibleError: El servicio no está registrado o disponible.
+2026-11-20 21:16:18,207 - INFO - Finalizó operación de creación de reserva.
+2026-11-20 21:16:18,207 - ERROR - Error en operación: 11. Intentar reservar servicio inexistente
+Traceback (most recent call last):
+  File "C:\Users\danie\OneDrive\Desktop\SOFTWARE_FJ\main.py", line 23, in ejecutar
+    resultado = operacion()
+  File "C:\Users\danie\OneDrive\Desktop\SOFTWARE_FJ\main.py", line 154, in <lambda>
+    lambda: sistema.crear_reserva(
+            ~~~~~~~~~~~~~~~~~~~~~^
+        "R003", "C001", "S999", 2
+        ^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\danie\OneDrive\Desktop\SOFTWARE_FJ\gestor.py", line 118, in crear_reserva
+    raise ServicioNoDisponibleError(
+        "El servicio no está registrado o disponible."
+    )
+excepciones.ServicioNoDisponibleError: El servicio no está registrado o disponible.
+2026-11-20 21:16:18,209 - INFO - Reserva confirmada: R001
+2026-11-20 21:16:18,209 - INFO - Finalizó operación de confirmación.
+2026-11-20 21:16:18,210 - INFO - Reserva cancelada: R001
+2026-11-20 21:16:18,210 - INFO - Finalizó operación de cancelación.
+2026-11-20 21:16:18,211 - ERROR - Error al confirmar reserva.
+Traceback (most recent call last):
+  File "C:\Users\danie\OneDrive\Desktop\SOFTWARE_FJ\gestor.py", line 155, in confirmar_reserva
+    costo = reserva.confirmar(descuento, impuesto)
+  File "C:\Users\danie\OneDrive\Desktop\SOFTWARE_FJ\reserva.py", line 51, in confirmar
+    raise OperacionNoPermitidaError(
+        "Solo se pueden confirmar reservas pendientes."
+    )
+excepciones.OperacionNoPermitidaError: Solo se pueden confirmar reservas pendientes.
+2026-11-20 21:16:18,213 - INFO - Finalizó operación de confirmación.
+2026-11-20 21:16:18,213 - ERROR - Error en operación: 15. Confirmar reserva cancelada
+Traceback (most recent call last):
+  File "C:\Users\danie\OneDrive\Desktop\SOFTWARE_FJ\main.py", line 23, in ejecutar
+    resultado = operacion()
+  File "C:\Users\danie\OneDrive\Desktop\SOFTWARE_FJ\main.py", line 184, in <lambda>
+    lambda: sistema.confirmar_reserva("R001")
+            ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^
+  File "C:\Users\danie\OneDrive\Desktop\SOFTWARE_FJ\gestor.py", line 155, in confirmar_reserva
+    costo = reserva.confirmar(descuento, impuesto)
+  File "C:\Users\danie\OneDrive\Desktop\SOFTWARE_FJ\reserva.py", line 51, in confirmar
+    raise OperacionNoPermitidaError(
+        "Solo se pueden confirmar reservas pendientes."
+    )
+excepciones.OperacionNoPermitidaError: Solo se pueden confirmar reservas pendientes.
+2026-11-20 21:16:18,218 - INFO - Consulta del resumen del sistema.
